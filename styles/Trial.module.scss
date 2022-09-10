@@ -1,0 +1,53 @@
+@import "global";
+.menu {
+  padding-top: 10%;
+  h1 {
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+    color: $ternary;
+    transition: 1s;
+    &:hover {
+      background-color: $ternary;
+      color: $quarter;
+      cursor: pointer;
+      transform: translateX(20px);
+    }
+  }
+}
+.login {
+  //border: solid;
+  padding: 25px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: left;
+  justify-content: left;
+  margin-top: 15%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  color: $ternary;
+  input {
+    border: solid $secondary;
+    color: $ternary;
+    padding: 10px;
+    font-size: large;
+  }
+  button{
+    width: 25%;
+    margin-top: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    
+    background-color: $ternary;
+    color: $quarter;
+    border: solid $ternary;
+    transition: 1s;
+    
+    &:hover{
+      cursor: pointer;
+      border: solid $main;
+    }
+  }
+}
