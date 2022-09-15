@@ -1,12 +1,11 @@
 //import { UseUser } from '@auth0/nextjs-auth0';
 import { useUser } from "@auth0/nextjs-auth0";
-import Head from "next/head";
-import Image from "next/image";
+
 import styles from "../styles/Trial.module.scss";
 import { useRouter } from "next/router";
 
 export default function Home() {
-  // const { user, error, isLoading } = useUser();
+  const { user, error, isLoading } = useUser();
   // const checking = async() => {
   //   console.log(user);
   //   const fetching = await fetch('/api/hello');
@@ -14,17 +13,34 @@ export default function Home() {
 
   //   console.log(data.name);
   // }
-  const router = useRouter(); 
+
+  const router = useRouter();
   const customerPage = () => {
-      router.push("/customer"); 
-  }
+    router.push("/customer");
+  };
   const businessPage = () => {
-    router.push("/business")
+    router.push("/business");
+  };
+  const loggingOut = () => {
+    router.push("/api/auth/logout")
   }
+  const loggingin = () => {
+    router.push("/api/auth/login")
+  }
+
   return (
     <div className={styles.menu}>
-      <h1 onClick={customerPage}>Customer</h1>
-      <h1 onClick={businessPage}>Business</h1>
+      {user ? (
+        <div>
+          <h1 onClick={customerPage}>Business</h1>
+          <h1 onClick={businessPage}>Customer</h1>
+          <h1 onClick={loggingOut}>Logout</h1>
+        </div>
+      ) : (
+        <div>
+          <h1 onClick={loggingin}>Login</h1>
+        </div>
+      )}
     </div>
   );
 }
