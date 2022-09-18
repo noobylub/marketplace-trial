@@ -1,10 +1,13 @@
-import mongoose from 'mongoose'; 
+import mongoose from "mongoose";
 
 let customerSchema = new mongoose.Schema({
-    name: {type: String, required: true}, 
-    favoriteItem : String
-}); 
+  name: { type: String, required: true, unique: true },
+  favoriteItem: String,
+});
 
-const CustomerModel = mongoose.models.test||mongoose.model('Customer', customerSchema, 'CustomerCollection'); 
+const Customer =
+mongoose.models.Customer||
+mongoose.model("Customer", customerSchema, "CustomerCollection") 
+ 
 
-export default CustomerModel; 
+export default Customer;
